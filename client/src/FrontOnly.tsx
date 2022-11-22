@@ -33,7 +33,7 @@ export function FrontOnly() {
       <div className='bg-white rounded-md w-1/2 px-16 m-2'>
         <div className='font-bold my-8'>New Message</div>
         <div className='my-2'>Phone Number</div>
-        <textarea className='border rounded-md p-1' cols={37} rows={3} id='To' defaultValue='+972525552720'></textarea>
+        <textarea className='border rounded-md p-1' cols={37} rows={3} id='To' placeholder='+9725xxxxxxxx'></textarea>
         <div className={`text-red-500 ${warning ? '' : 'hidden'}`}>Please enter a valid number in the format +9725xxxxxxxx</div>
         <div className='my-2'>Message</div>
         <textarea className='border rounded-md p-1' cols={37} rows={5} id='Body' onChange={e => setLength(e.target.value.length)} maxLength={250}></textarea>
