@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { IMessage } from './types'
 import { formatDate, fetchSendMessage } from './utils'
 
-const host = process.env.HOST || 'http://localhost:5001'
+const host = process.env.REACT_APP_HOST || 'http://localhost'
 const { all } = document as any
 
 export function WithBackend() {
