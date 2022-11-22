@@ -34,6 +34,8 @@ app.get('/liveness', (req: Request, res: Response) => {
     res.status(200).send('success')
 })
 
-app.listen(80, () => {
-    console.log('Server running on port 80');
+app.listen(5001, () => {
+    console.log('Server running on port 5001');
 });
+
+module.exports = app
