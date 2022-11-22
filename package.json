@@ -2,7 +2,7 @@
   "name": "cityhive",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://eyar.github.io/messages",
+  "homepage": "https://messages-omega.vercel.app/",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
