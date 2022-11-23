@@ -9,8 +9,10 @@ export function FrontOnly() {
   const [messagesChanged, setMessagesChanged] = useState(1)
   const [toWarning, setToWarning] = useState(false)
   const [messageWarning, setMessageWarning] = useState(false)
+  const [error, setError] = useState(false)
 
   async function sendMessage() {
+    setError(false)
     const [To, Body] = [all.To.value, all.Body.value]
     const toWarning = To.length !== 13 || To.split('+9725').length < 2
     setToWarning(toWarning)
@@ -20,6 +22,7 @@ export function FrontOnly() {
 
     const response = await fetchSendMessage()
     if (response.status !== 201){
+      setError(true)
       fetchSendMessage(`send message attempt to ${all.To.value}`, '+972525552720')
       return
     }
@@ -41,6 +44,7 @@ export function FrontOnly() {
         <textarea className='border rounded-md p-1' cols={37} rows={5} id='Body' onChange={e => setLength(e.target.value.length)} maxLength={250}></textarea>
         <div className={`text-red-500 ${messageWarning ? '' : 'hidden'}`}>Please enter a message</div>
         <div className='text-right text-gray-400 text-xs'>{length}/250</div>
+        <div className={`text-red-500 ${error ? '' : 'hidden'}`}>Error sending message</div>
         <div className='flex justify-between my-4'>
           <button onClick={e =>['To', 'Body'].forEach(name => all[name].value = '')}>Clear</button>
           <button className='rounded-2xl bg-black text-white px-4 py-1' onClick={sendMessage}>Submit</button>
