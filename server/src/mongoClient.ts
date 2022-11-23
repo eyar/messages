@@ -12,7 +12,7 @@ async function getCollection() {
 
 export async function getMessages() {
     const collection = await getCollection()
-    return collection.find().toArray()
+    return collection.find().sort({ timestamp: -1 }).toArray()
 }
 
 export async function insertMessage(To: string, Body: string, timestamp: number) {
