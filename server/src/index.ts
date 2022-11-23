@@ -11,6 +11,8 @@ app.use(morgan('tiny'))
 app.use(cors())
 app.use(express.json())
 
+app.get('/', (req: Request, res: Response) => res.send('success'))
+
 app.post('/send-message', async (req: Request, res: Response) => {
     try {
         const { To, Body } = req.body
